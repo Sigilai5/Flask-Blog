@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<!--{%import 'bootstrap/wtf.wtf.html' as wtf%}-->
+{% block content %}
+<ul class="nav navbar-nav navbar-right">
+    {% if current_user.is_authenticated %}
+    <li>{{current_user.username}}></li>
+    <li><a href="{{url_for('auth.logout')}}">Sign out</a> </li>
+    {% else %}
+    <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+    {%endif%}
+</ul>
+<div class="col-md-4">  </div>
+<div class="col-md-8">
+
+  {{wtf.quick_form(login_form)}}
+
+</div>
+
+{% enblock %}
+
+</body>
+</html>

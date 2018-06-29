@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+</head>
+<body>
+<!--{%import 'bootstrap/wtf.wtf.html' as wtf%}-->
+{% block content %}
+<ul class="nav navbar-nav navbar-right">
+    {% if current_user.is_authenticated %}
+    <li>{{current_user.username}}></li>
+    <li><a href="{{url_for('auth.logout')}}">Sign out</a> </li>
+    {% else %}
+    <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+    {%endif%}
+</ul>
+
+<div class="col-md-4">  </div>
+<div class="col-md-8">
+
+  {{wtf.quick_form(registration_form)}}
+
+</div>
+
+{% enblock %}
+
+
+</body>
+</html>
