@@ -5,8 +5,7 @@ from app.models import User, Role,Pitch
 
 # instances for the create_app
 app = create_app('development')
-# app = create_app('development')
-# app = create_app('production')
+
 
 manager = Manager(app)
 manager.add_command('server',Server)
