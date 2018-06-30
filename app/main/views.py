@@ -14,15 +14,7 @@ def index():
 
     return render_template('index.html', tech = tech,sports = sports,religion= religion)
 
-@main.route('/technology' ,methods = ['GET','POST'])
-def technology():
-    tech = Pitch.query.filter_by(category = 'Technology').all()
-    print(tech)
 
-    if tech is None:
-        abort(404)
-
-    return render_template('technology.html', tech = tech)
 
 @main.route('/sports', methods = ['GET','POST'])
 def sports():
