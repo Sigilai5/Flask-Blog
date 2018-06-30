@@ -5,7 +5,7 @@ class Config:
     General configuration parent class
     '''
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sigilai:root@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sigilai:root@localhost/blog'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
 
