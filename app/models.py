@@ -1,7 +1,8 @@
 from . import db,login_manager
 from werkzeug.security import  generate_password_hash,check_password_hash
 from flask_login import UserMixin
-from . import login_manager
+from datetime import datetime
+import os
 
 
 @login_manager.user_loader
@@ -14,8 +15,13 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key= True)
     username = db.Column(db.String(255),index=True)
     email = db.Column(db.String(255),unique=True,index=True)
-    pass_secure = db.Column(db.String(255))
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    pass_secure = db.Column(db.String(255))
+    bio = db.Column(db.String(255))
+    profile_pic = db.Column(db.String(255))
+    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
+    comments = db.relationship('Comment', backref='user', lazy="dynamic")
+
 
     @property
     def password(self):
@@ -45,3 +51,49 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+
+
+class Pitch(db.Model):
+    __tablename__ = 'pitches'
+
+    id = db.Column(db.Integer,primary_key=True)
+    category = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+    posted = db.Column(db.DateTime,default=datetime.utcnow())
+    up_vote = db.Column(db.Integer, default=int(0))
+    down_vote = db.Column(db.Integer,default=int(0))
+    user_id =db.Column(db.Integer,db.ForeignKey('users.id'))
+    comments = db.relationship('Comment', backref='comment', lazy="dynamic")
+
+
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_pitch(cls,id):
+        pitches = Pitch.filter_by(id=id).all()
+        return pitches
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer,primary_key= True)
+    details = db.Column(db.String(255))
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comment(cls, id):
+        comments = Pitch.filter_by(id=id).all()
+        return comments
+
+
+
+

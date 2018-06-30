@@ -1,8 +1,31 @@
-<ul class="nav navbar-nav navbar-right">
+{% extends 'base.html'%}
+
+{% block styles%}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<body>
+<div class="topnav">
+    <a href="/">Home</a>
+    <a href="/religion">Religion</a>
+     <a href="/sports">Sports</a>
+    <a href="/technology">Technology</a>
     {% if current_user.is_authenticated %}
-    <li>{{current_user.username}}></li>
-    <li><a href="{{url_for('auth.logout')}}">Sign out</a> </li>
+    <a href="/post">Post</a>
+    <a href="{{url_for('auth.logout')}}" class="sign">Sign out</a>
     {% else %}
-    <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+    <a href="{{url_for('auth.login')}}" class="sign">Sign In</a>
+    <a href="{{url_for('auth.register')}}" class="sign">Sign Up</a>
     {%endif%}
-</ul>
+    <a  href="{{url_for('main.profile',uname=current_user.username)}}" id="user">{{current_user.username}}</a>
+
+
+</div>
+
+</body>
+
+{% endblock %}

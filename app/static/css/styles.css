@@ -1,0 +1,115 @@
+/*body{*/
+    /*background-image: url("/app/static/images/ba.jpg");*/
+/*}*/
+.bd{
+
+}
+body{
+    background-image: url("/app/static/images/ba.jpg");
+
+}
+
+ul{
+    background-color: black;
+    display: block;
+     overflow: hidden;
+}
+li a{
+    float: left;
+
+
+}
+li{
+   list-style: none;
+
+}
+a{
+    color: white;
+    text-decoration: none;
+    padding-right: 2px;
+}
+
+a:hover{
+    background-color: black;
+}
+
+#user{
+    color: orangered;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+    display: block;
+    position: absolute;
+    padding-right: 50%;
+
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  /*color: black;*/
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+a{
+    color: #dddddd;
+}
+a:hover{
+    color: orangered;
+}
+.sign{
+    color: green;
+}
+
+.panel-body{
+    height: 100px;
+    overflow: hidden;
+}
+p{
+    font-size: 15px;
+}
+body {
+    background-image: url("../ba.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.panel{
+    background-color: #a94442;
+}
+p{
+    color: #ffffff;
+    font-family: Arial;
+}
+.panel-heading{
+   background-color: #a94442;
+}
+.prof{
+    background-color: #2b542c;
+}
+.foot{
+    background-color: #a94442;
+}
+.panel-footer{
+    background-color: #a94442;
+}
+.prof{
+    opacity: 0.9;
+}
+button{
+    width: 600px;
+
+}

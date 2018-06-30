@@ -1,19 +1,78 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-Index page
-<a href="/religion">Religionis</a>
-<a href="/authenticate/login">Login</a>
+{% extends 'base.html' %}
+
+{% block content %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<br><br><br><br>
+<div class="container">
+    <div class="row">
+        {% for r in religion%}
+<div class="col-md-4">
+
+      <div class="panel panel-info">
+    <div class="panel-heading">
+    <h1 class="panel-title">Religion</h1>
+
+</div>
+
+    <div class="panel-body">
+<p>"{{r.description}}"</p>
+    </div>
+<p class="foot">Posted by {{r.user.username}}</p>
+    <div class="panel-footer">
+<p><a href="/comments/{{r.id}}">Comment</a></p>
+
+        <i class="fa fa-thumbs-up fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-thumbs-down fa-2x"></i>
+    </div>
+        </div>
+
+</div>
+        {% endfor %}
+{% for t in tech%}
+        <div class="col-md-4">
+
+      <div class="panel panel-info">
+    <div class="panel-heading">
+    <h1 class="panel-title">Technology</h1>
+
+</div>
+
+    <div class="panel-body">
+<p>"{{t.description}}"</p>
+    </div>
+<p class="foot">Posted by {{t.user.username}}</p>
+    <div class="panel-footer">
+<p><a href="/comments/{{t.id}}">Comment</a></p>
+    </div>
+        </div>
+
+</div>
+{% endfor %}
+{% for s in sports%}
+        <div class="col-md-4">
+
+    <div class="panel panel-info">
+    <div class="panel-heading">
+    <h1 class="panel-title">Sports</h1>
+
+</div>
+
+    <div class="panel-body">
+<p>"{{s.description}}"</p>
+    </div>
+        <p>Posted by {{s.user.username}}</p>
+    <div class="panel-footer">
+<p><a href="/comments/{{s.id}}">Comment</a></p>
+    </div>
+        </div>
+
+</div>
+{% endfor %}
+
+</div>
+</div>
 
 
 
+{% endblock%}
 
-</body>
-</html>
+<!--#https://www.codewars.com/kata/find-the-divisors/train/python-->

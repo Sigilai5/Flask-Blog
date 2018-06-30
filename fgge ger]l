@@ -1,0 +1,17 @@
+ id |  category  |               description                |           posted           | user_id 
+----+------------+------------------------------------------+----------------------------+---------
+  1 | Technology | ghc                                      | 2018-06-27 12:12:14.041356 |       5
+ 10 | Technology | hygfh                                    | 2018-06-27 16:43:40.318371 |       5
+ 11 | Technology | Briaq                                    | 2018-06-27 16:43:40.318371 |       5
+ 12 | Technology | Technologytt                             | 2018-06-27 16:56:47.123691 |       5
+ 13 | Technology | 813455325                                | 2018-06-27 17:02:04.928625 |       5
+ 14 | Religion   | uygjgy                                   | 2018-06-27 17:03:53.248055 |       5
+ 15 | Technology | qww                                      | 2018-06-27 17:04:20.095195 |       5
+ 16 | Technology | Reqwetryqeguqerujhfjkdcxjkhzvkhu4567890- | 2018-06-27 17:04:20.095195 |       5
+ 17 | Technology | I ha e  rewlogoon                        | 2018-06-27 17:04:20.095195 |       5
+ 18 | Religion   | Brian rwligin                            | 2018-06-27 17:04:20.095195 |       5
+ 19 | Sports     | I love rugby!                            | 2018-06-28 06:29:25.322589 |       5
+ 20 | Sports     | I love footblall!                        | 2018-06-28 06:29:25.322589 |       5
+ 21 | Technology | I love Virgin Atlantic                   | 2018-06-28 08:08:08.821465 |       9
+(13 rows)
+

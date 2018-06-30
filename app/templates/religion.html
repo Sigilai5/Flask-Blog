@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Religions</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+<div class="container" id="container">
+    <div class="row">
+{% block content %}
+<br><br><br><br>
+{% for r in religion%}
+
+<div class="col-lg-3">
+
+        <div class="panel panel-info">
+    <div class="panel-heading">
+    <h1 class="panel-title">Religion</h1>
+
+</div>
+
+    <div class="panel-body">
+<p>"{{r.description}}"</p>
+    </div>
+<p>Posted by {{r.user.username}}</p>
+    <div class="panel-footer">
+<p><a href="/comments/{{r.id}}">Comment</a></p>
+    </div>
+        </div>
+</div>
+
+
+
+{% endfor %}
+
+{% endblock%}
+           </div>
+</div>
